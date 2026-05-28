@@ -28,7 +28,7 @@ def mostrar_menu()-> None:
         print("0. Salir")
         print("════════════════════════════════════════")
 
-        opcion = ingresar_entero("Ingrese una opción: ", "❌Error. Los datos ingresados no son válidos.")
+        opcion = ingresar_entero("Ingrese una opción: ", "❌ Error. Los datos ingresados no son válidos.")
 
         match opcion:
             case 1:
@@ -93,9 +93,38 @@ def mostrar_menu()-> None:
                 else:
                     print("⚠️  Los votos no fueron cargados")
                     esperar_enter()
-
-
-
+            case 9:
+                limpiar_consola()
+                if hay_votos == True:
+                    mostrar_partidos_menos_votados(votos)
+                    esperar_enter()
+                else:
+                    print("⚠️  Los votos no fueron cargados")
+                    esperar_enter()
+            case 10:
+                limpiar_consola()
+                if hay_votos == True:
+                    verificar_segunda_vuelta(votos)
+                    esperar_enter()
+                else:
+                    print("⚠️  Los votos no fueron cargados")
+                    esperar_enter()
+            case 11:
+                limpiar_consola()
+                hay_votos = True
+                votos = [888,555,333,1850,999,777,1400,180,2500,60]
+                hay_votos = True
+                print("*** 🧾 DATOS HARDCODEADOS 🧾 ***")
+                print("✅ Los votos fueron hardcodeados")
+                print(f"📊 Nuevo valores de los votos: {votos}")
+                print("")
+                esperar_enter()
+            case 12:
+                lista_nombres = ["frente hola mundo","alianza Scarafilo",
+                                 "La libertad de Baus","unidad de Python","Frente de Java"]
+                
+                mostrar_lista_nombres_ordenada(lista_nombres)
+                esperar_enter()
             case 0:
                 print("Hasta luego!! ✌️")
             case _:

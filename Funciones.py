@@ -15,7 +15,7 @@ def esperar_enter() -> None:
     Función para esperar un Enter para continuar vista en clase
     """
     print("")
-    input("Ingresá ENTER para continuar....")
+    input("Ingresá ENTER para Volver al Menú...")
 
 
 # El punto 1 b) indica que no se permiten Ceros, pero podría ser que un partido no reciba votos.
@@ -76,7 +76,7 @@ def calcular_porcentaje(cantidad_votos: int, total_votos: int,
         return cantidad_votos / total_votos * 100
     
 
-def calcular_promedio(total_votos: int, cantidad_partidos: int = 5,
+def calcular_promedio(total_votos: int, cantidad_partidos: int,
                       mensaje_error: str = "❌ División por 0") -> float:
     
     if cantidad_partidos == 0:
@@ -85,7 +85,11 @@ def calcular_promedio(total_votos: int, cantidad_partidos: int = 5,
         return  total_votos / cantidad_partidos 
 
 
-
+def ordenar_lista(lista_nombres: list) -> list:
+    for i in range (len(lista_nombres)):
+        nombre = lista_nombres[i]
+        for j in range(len(nombre[j])):
+            if ord
 
 
 

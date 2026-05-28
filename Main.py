@@ -13,4 +13,5 @@ hay_votos = False   #Valida si fueron cargados los votos para Opnción 2, ayuda 
 
 from Menu import *
 
+
 mostrar_menu()

@@ -126,12 +126,26 @@ def mostrar_partidos_con_mas_votos(votos: list, cantidad_votos: int,
             print(f"(3) Promedio de votos       : {(acumulado / cantidad_partidos):.2f}")
             print("═══════════════════════════════════════════════════════")    
 
-
 def mostrar_partidos_con_mayor_promedio(votos: list, 
                         mensaje_error1: str = "❌ Se cargaron CERO votos",
                         mensaje_error2: str = "❌ No hay partidos con esas características") -> None:
     """
 
+    Muestra los partidos políticos que obtuvieron una cantidad de votos
+    superior al promedio general.
+
+    Para cada partido que cumple la condición se informa la cantidad de votos
+    obtenidos y el porcentaje que representan sobre el total. Al finalizar,
+    se muestra el porcentaje acumulado de los resultados encontrados.
+
+    Args:
+        votos (list): Lista con la cantidad de votos por partido.
+        mensaje_error1 (str): Mensaje a mostrar si no hay votos cargados.
+        mensaje_error2 (str): Mensaje a mostrar si ningún partido supera el promedio.
+
+    Returns:
+        None
+  
     """
    
     suma = sumar_votos(votos)
@@ -140,7 +154,7 @@ def mostrar_partidos_con_mayor_promedio(votos: list,
     else:
 
         print(f"*** 📈 PARTIDOS POR ENCIMA DEL PROMEDIO 📈 ***\n")
-        promedio = calcular_promedio(suma)
+        promedio = calcular_promedio(suma,len(votos))
         print(f"(1) Promedio general de votos: {promedio}")
 
 
@@ -162,4 +176,89 @@ def mostrar_partidos_con_mayor_promedio(votos: list,
         else:
             print(f"(2) Procentaje acumulado de los resultados: {porcentaje_acum:.2f} %")
 
+
+def mostrar_partidos_menos_votados(votos:list, 
+                        mensaje_error1: str = "❌ Se cargaron CERO votos") -> None:    
+    """
+    Identifica y muestra el partido o los partidos con la menor cantidad
+    de votos obtenidos en la elección.
+
+    Para cada partido menos votado se informa la cantidad de votos y el
+    porcentaje que representan sobre el total de votos. Si no hay votos
+    cargados, se muestra un mensaje de error.
+
+    Args:
+        votos (list): Lista con la cantidad de votos por partido.
+        mensaje_error1 (str): Mensaje a mostrar si no hay votos cargados.
+
+    Returns:
+        None
+    """
+    suma = sumar_votos(votos)
+    if suma == 0:
+        print(mensaje_error1)
+    else:
+
+        print(f"*** 📉 PARTIDOS CON MENOS VOTOS 📉 ***\n")
+        
+        aux_min = votos[0]
+        for i in range(len(votos)):            
+            if votos[i] < aux_min:
+                aux_min = votos[i]
+        
+        for j in range(len(votos)):
+            if votos[j] == aux_min:
+                porcentaje_parcial = calcular_porcentaje(votos[j],suma)
+                print("────────────────────────────────")
+                print(f"Partido {j+1}°")
+                print(f"Cantidad de votos  : {votos[j]}")
+                print(f"Porcentaje         : {porcentaje_parcial:.2f} %")
+        
+        print("═══════════════════════════════════════════════════════")
+
+def verificar_segunda_vuelta(votos:list, 
+                        mensaje_error1: str = "❌ Se cargaron CERO votos") -> None:    
+    """
     
+    Verifica si corresponde realizar una segunda vuelta electoral.
+
+    Si ningún partido supera el 50 % de los votos, se informa que debe
+    realizarse una segunda vuelta. En caso contrario, se informa que no
+    corresponde segunda vuelta y se muestran los datos del partido ganador.
+
+    Args:
+        votos (list): Lista con la cantidad de votos por partido.
+        mensaje_error1 (str): Mensaje a mostrar si no hay votos cargados.
+
+    Returns:
+        None
+
+    """
+    suma = sumar_votos(votos)
+    if suma == 0:
+        print(mensaje_error1)
+    else:
+        print(f"*** 🗳️ ⚖️  VERIFICAR SEGUNDA VUELTA  ⚖️ 🗳️  ***\n")
+
+        ganador = False
+        for i in range(len(votos)):
+            porcentaje_parcial = calcular_porcentaje(votos[i],suma)
+            if porcentaje_parcial > 50:
+                ganador = True
+                break
+
+        if ganador == False:
+            print("Debe realizarse una segunda vuelta electoral")
+        else:
+            print("NO debe realizarse una segunda vuelta electoral")
+            print("───────────────────────────────────────────────")
+            print("PARTIDO GANADOR")
+            print(f"Partido {i+1}°")
+            print(f"Cantidad de votos  : {votos[i]}")
+            print(f"Porcentaje         : {porcentaje_parcial:.2f} %")
+        
+        print("════════════════════════════════════════════════")
+        
+
+def mostrar_lista_nombres_ordenada(lista_nombres: list) -> None:
+    lista_nombres = ordenar_lista(lista_nombres)
