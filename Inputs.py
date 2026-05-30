@@ -13,7 +13,7 @@ def ingresar_entero(mensaje: str, mensaje_error: str) -> int:
 
     numero = input(mensaje)
 
-    while validar_cadena_entera(numero) == False:
+    while validar_cadena_entero(numero) == False:
         print(mensaje_error)
         numero = input(mensaje)
 
@@ -21,7 +21,7 @@ def ingresar_entero(mensaje: str, mensaje_error: str) -> int:
     return numero
    
 
-def validar_cadena_entera(cadena: str) -> bool:
+def validar_cadena_entero(cadena: str) -> bool:
     """
     Verifica si una cadena representa un número entero válido.
     Utilizando código ASCII

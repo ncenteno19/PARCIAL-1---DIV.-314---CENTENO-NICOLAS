@@ -4,12 +4,12 @@ from Prints import *
 
 
 def mostrar_menu()-> None:
-        
-    opcion = -1    
-    votos = []          
+
+    opcion = -1
+    votos = []
     hay_votos = False   #Valida si fueron cargados los votos para Opnción 2, ayuda de IA
 
-    
+
     while opcion != 0:
         limpiar_consola()
         print("══════════ ELECCIONES UTN FRA ══════════")
@@ -30,106 +30,73 @@ def mostrar_menu()-> None:
 
         opcion = ingresar_entero("Ingrese una opción: ", "❌ Error. Los datos ingresados no son válidos.")
 
-        match opcion:
-            case 1:
-                limpiar_consola()
-                print("🗳️  *** CARGA DE VOTOS *** 🗳️")
-                votos = cargar_votos()
-                hay_votos = True
-                esperar_enter()
-            case 2:
-                limpiar_consola()
-                if hay_votos == True:
+        if (opcion > 1 and opcion < 11) and hay_votos == False:
+            print("⚠️  Los votos no fueron cargados")
+            esperar_enter()
+
+        else:    
+            match opcion:
+                case 1:
+                    limpiar_consola()
+                    print("🗳️  *** CARGA DE VOTOS *** 🗳️")
+                    votos = cargar_votos()
+                    hay_votos = True
+                    esperar_enter()
+                case 2:
+                    limpiar_consola()
                     mostrar_resultados(votos)
                     esperar_enter()
-                else:
-                    print("⚠️  Los votos no fueron cargados")
-                    esperar_enter()
-            case 3:
-                limpiar_consola()
-                if hay_votos == True:
+                case 3:
+                    limpiar_consola()
                     mostrar_porcentajes(votos, 10)
                     esperar_enter()
-                else:
-                    print("⚠️  Los votos no fueron cargados")
-                    esperar_enter()
-            case 4:
-                limpiar_consola()
-                if hay_votos == True:
+                case 4:
+                    limpiar_consola()
                     mostrar_porcentajes(votos, 15)
-                    esperar_enter()
-                else:
-                    print("⚠️  Los votos no fueron cargados")
-                    esperar_enter()
-            case 5:
-                limpiar_consola()
-                if hay_votos == True:
+                    esperar_enter()  
+                case 5:
+                    limpiar_consola()
                     mostrar_porcentajes(votos, 20)
                     esperar_enter()
-                else:
-                    print("⚠️  Los votos no fueron cargados")
-                    esperar_enter()
-            case 6:
-                limpiar_consola()
-                if hay_votos == True:
+                case 6:
+                    limpiar_consola()
                     mostrar_partidos_con_mas_votos(votos, 500)
                     esperar_enter()
-                else:
-                    print("⚠️  Los votos no fueron cargados")
-                    esperar_enter()
-            case 7:
-                limpiar_consola()
-                if hay_votos == True:
+                case 7:
+                    limpiar_consola()
                     mostrar_partidos_con_mas_votos(votos, 1000)
                     esperar_enter()
-                else:
-                    print("⚠️  Los votos no fueron cargados")
-                    esperar_enter()
-            case 8:
-                limpiar_consola()
-                if hay_votos == True:
+                case 8:
+                    limpiar_consola()
                     mostrar_partidos_con_mayor_promedio(votos)
                     esperar_enter()
-                else:
-                    print("⚠️  Los votos no fueron cargados")
-                    esperar_enter()
-            case 9:
-                limpiar_consola()
-                if hay_votos == True:
+                case 9:
+                    limpiar_consola()
                     mostrar_partidos_menos_votados(votos)
                     esperar_enter()
-                else:
-                    print("⚠️  Los votos no fueron cargados")
-                    esperar_enter()
-            case 10:
-                limpiar_consola()
-                if hay_votos == True:
+                case 10:
+                    limpiar_consola()
                     verificar_segunda_vuelta(votos)
                     esperar_enter()
-                else:
-                    print("⚠️  Los votos no fueron cargados")
+                case 11:
+                    limpiar_consola()
+                    votos = [888,555,333,1850,999,777,1400,180,2500,60]
+                    hay_votos = True
+                    print("*** 🧾 DATOS HARDCODEADOS 🧾 ***")
+                    print("✅ Los votos fueron hardcodeados")
+                    print(f"📊 Nuevo valores de los votos: {votos}")
+                    print("")
                     esperar_enter()
-            case 11:
-                limpiar_consola()
-                hay_votos = True
-                votos = [888,555,333,1850,999,777,1400,180,2500,60]
-                hay_votos = True
-                print("*** 🧾 DATOS HARDCODEADOS 🧾 ***")
-                print("✅ Los votos fueron hardcodeados")
-                print(f"📊 Nuevo valores de los votos: {votos}")
-                print("")
-                esperar_enter()
-            case 12:
-                lista_nombres = ["frente hola mundo","alianza Scarafilo",
-                                 "La libertad de Baus","unidad de Python","Frente de Java"]
-                
-                mostrar_lista_nombres_ordenada(lista_nombres)
-                esperar_enter()
-            case 0:
-                print("Hasta luego!! ✌️")
-            case _:
-                print("❌  Opción Inválida. Vuelva a intentarlo")
-                esperar_enter()
-
-        
-        
+                case 12:
+                    lista_nombres = ["frente hola mundo","alianza Scarafilo",
+                                    "La libertad de Baus","unidad de Python","Frente de Java"]
+                    
+                    convertir_lista_en_titulos(lista_nombres)
+                    ordernar_menor_mayor(lista_nombres)
+                    mostrar_lista_nombres_ordenada(lista_nombres)
+                    esperar_enter()  
+                case 0:
+                    print("Hasta luego!! ✌️")
+                case _:
+                    print("❌  Opción Inválida. Vuelva a intentarlo")
+                    esperar_enter()

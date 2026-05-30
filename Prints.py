@@ -260,5 +260,12 @@ def verificar_segunda_vuelta(votos:list,
         print("════════════════════════════════════════════════")
         
 
-def mostrar_lista_nombres_ordenada(lista_nombres: list) -> None:
-    lista_nombres = ordenar_lista(lista_nombres)
+def mostrar_lista_nombres_ordenada(lista_nombres: list, 
+                                   mensaje_error: str = "❌ Error en tipo de dato") -> None:
+    
+    if type(lista_nombres) != list:
+        print(mensaje_error)
+    else:
+        print("LISTA ORDENADA EN ORDEN ALFABÉTICO (A-Z)")
+        print(lista_nombres)
+        
