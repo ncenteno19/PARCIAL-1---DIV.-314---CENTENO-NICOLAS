@@ -88,11 +88,9 @@ def mostrar_menu()-> None:
                     print("")
                     esperar_enter()
                 case 12:
+                    limpiar_consola()
                     lista_nombres = ["frente hola mundo","alianza Scarafilo",
                                     "La libertad de Baus","unidad de Python","Frente de Java"]
-                    
-                    convertir_lista_en_titulos(lista_nombres)
-                    ordernar_menor_mayor(lista_nombres)
                     mostrar_lista_nombres_ordenada(lista_nombres)
                     esperar_enter()  
                 case 0:

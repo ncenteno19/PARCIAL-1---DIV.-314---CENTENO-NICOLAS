@@ -74,8 +74,6 @@ def mostrar_porcentajes(votos: list, porcentaje: int,
         else:
             print(f"El porcentaje acumulado en la búsqueda: {acumulado:.2f} %")
 
-#Nombre de función recomendado por IA, en mi opinión largo pero entendible
-# Yo había puesto mostrar_votos pero me corrigió indicando que no muestra todos lo votos.
 def mostrar_partidos_con_mas_votos(votos: list, cantidad_votos: int,
                         mensaje_error1: str = "❌ Se cargaron CERO votos",
                         mensaje_error2: str = "❌ No hay partidos con esas características") -> None:
@@ -176,7 +174,6 @@ def mostrar_partidos_con_mayor_promedio(votos: list,
         else:
             print(f"(2) Procentaje acumulado de los resultados: {porcentaje_acum:.2f} %")
 
-
 def mostrar_partidos_menos_votados(votos:list, 
                         mensaje_error1: str = "❌ Se cargaron CERO votos") -> None:    
     """
@@ -258,14 +255,33 @@ def verificar_segunda_vuelta(votos:list,
             print(f"Porcentaje         : {porcentaje_parcial:.2f} %")
         
         print("════════════════════════════════════════════════")
-        
-
+    
 def mostrar_lista_nombres_ordenada(lista_nombres: list, 
                                    mensaje_error: str = "❌ Error en tipo de dato") -> None:
-    
+
+    """
+    Muestra una lista de nombres de partidos antes y después de ser ordenada.
+
+    La función imprime primero la lista original sin ordenar, luego convierte
+    los nombres al formato título, los ordena alfabéticamente y finalmente
+    muestra la lista ordenada.
+
+    Args:
+        lista_nombres (list): Lista de nombres de partidos políticos.
+        mensaje_error (str): Mensaje a mostrar si el parámetro no es una lista.
+
+    Returns:
+        None
+    """
+
     if type(lista_nombres) != list:
         print(mensaje_error)
     else:
-        print("LISTA ORDENADA EN ORDEN ALFABÉTICO (A-Z)")
+        print("*** 🔴❌ NOMBRES DE PARTIDOS SIN ORDENAR ❌🔴 ***")
+        print(lista_nombres)
+        print("")
+        convertir_lista_en_titulos(lista_nombres)
+        ordernar_menor_mayor(lista_nombres)
+        print("*** ✅🔤 LISTA ORDENADA EN ORDEN ALFABÉTICO (A-Z) 🔤✅ ***")
         print(lista_nombres)
         

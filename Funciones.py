@@ -200,6 +200,22 @@ def convertir_De_en_de (nombre: str, mensaje_error: str = "❌ Error en tipo de 
         return cadena_copia
 
 def ordernar_menor_mayor(vector:list) -> bool:
+
+    """
+    Ordena una lista de valores numéricos de menor a mayor.
+
+    El ordenamiento se realiza utilizando un algoritmo de comparación
+    con intercambio de valores (tipo burbuja). La función modifica la
+    lista original.
+
+    Args:
+        vector (list): Lista de valores a ordenar.
+
+    Returns:
+        bool: True si el parámetro es una lista y se intentó ordenar,
+              False en caso contrario.
+    """
+    
     retorno = False
     if type(vector) == list:
         retorno = True
@@ -211,7 +227,21 @@ def ordernar_menor_mayor(vector:list) -> bool:
     return retorno
 
 def intercambiar_valores(vector:list,izq:int,der:int) -> None:
-    #Swap o intercambio, se cambia la posición de lso valores del array 
+
+    """
+    Intercambia los valores de dos posiciones de una lista.
+
+    Utiliza una variable auxiliar para realizar el intercambio
+    entre los índices indicados.
+
+    Args:
+        vector (list): Lista en la que se realiza el intercambio.
+        izq (int): Índice del primer elemento.
+        der (int): Índice del segundo elemento.
+
+    Returns:
+        None
+    """
 
     aux_izq = vector[izq]
     vector[izq] = vector[der]
