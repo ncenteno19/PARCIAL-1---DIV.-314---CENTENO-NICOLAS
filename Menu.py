@@ -7,7 +7,7 @@ def mostrar_menu()-> None:
 
     opcion = -1
     votos = []
-    hay_votos = False   #Valida si fueron cargados los votos para Opnción 2, ayuda de IA
+    hay_votos = False   
 
 
     while opcion != 0:

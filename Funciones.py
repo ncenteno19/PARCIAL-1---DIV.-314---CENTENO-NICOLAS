@@ -98,7 +98,7 @@ def convertir_lista_en_titulos(lista_nombres: list) -> list:
     for i in range (len(lista_nombres)):
         nombre = convertir_a_minuscula(lista_nombres[i])
         nombre = convertir_en_titulo(nombre)
-        nombre = convertir_De_en_de(nombre) # este punto puede omitirse si se desea
+        # nombre = convertir_De_en_de(nombre) # este punto puede omitirse si se desea
 
         lista_nombres[i] = nombre
     
@@ -155,7 +155,7 @@ def convertir_en_titulo(nombre:str, mensaje_error: str = "❌ Error en tipo de d
             caracter_ascii = ord(nombre[i])
 
             if i == 0 or nombre[i-1] == " ": 
-                cadena_copia += chr(caracter_ascii - 32) #Si recibe una cadena en Mayuscula escribiría caracteres del 33 al 58
+                cadena_copia += chr(caracter_ascii - 32) 
             else:
                 cadena_copia += chr(caracter_ascii)
 
